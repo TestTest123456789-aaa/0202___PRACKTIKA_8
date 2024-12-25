@@ -1,0 +1,84 @@
+﻿<UserControl x:Class="_0202_8_Weather.Elements.Element"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:_0202_8_Weather.Elements"
+             mc:Ignorable="d" >
+    <Grid Background="CadetBlue">
+        <Grid Background="White" Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="55"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,0,15,15">
+                <TextBlock Text="{Binding Main.TemperatureRounded, StringFormat='{}{0}°C'}" FontSize="48" FontWeight="Bold" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding DateTime, StringFormat='{}{0:dd MMMM HH:mm}'}" FontSize="16" VerticalAlignment="Bottom" Margin="0,0,0,5"/>
+            </StackPanel>
+            <TextBlock Text="Погода: " Grid.Row="1" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center" Margin="5"/>
+            <Grid Grid.Row="1" Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Image Width="32" Height="32" VerticalAlignment="Center" Margin="0,0,10,0">
+                    <Image.Style>
+                        <Style TargetType="Image">
+                            <Setter Property="Source" Value="\Images\sun.png"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding WeatherDescription}" Value="ясно">
+                                    <Setter Property="Source" Value="\Images\sun.png"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding WeatherDescription}" Value="переменная облачность">
+                                    <Setter Property="Source" Value="\Images\sun_cloud.png"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding WeatherDescription}" Value="малооблачно">
+                                    <Setter Property="Source" Value="\Images\sun_cloud.png"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding WeatherDescription}" Value="облачно с прояснениями">
+                                    <Setter Property="Source" Value="\Images\sun_cloud.png"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding WeatherDescription}" Value="пасмурно">
+                                    <Setter Property="Source" Value="\Images\cloud.png"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding WeatherDescription}" Value="дождь">
+                                    <Setter Property="Source" Value="\Images\rain.png"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding WeatherDescription}" Value="ливень">
+                                    <Setter Property="Source" Value="\Images\rain.png"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding WeatherDescription}" Value="гроза">
+                                    <Setter Property="Source" Value="\Images\rain.png"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding WeatherDescription}" Value="снег">
+                                    <Setter Property="Source" Value="/Images/snow.png"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding WeatherDescription}" Value="небольшой снег">
+                                    <Setter Property="Source" Value="/Images/snow.png"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding WeatherDescription}" Value="туман">
+                                    <Setter Property="Source" Value="/Images/cloud.png"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+                <TextBlock Text="{Binding Main.TemperatureRounded, StringFormat='{}{0}°C'}" Grid.Column="1" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                <TextBlock Text="{Binding WeatherDescription}" Grid.Column="2" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                <TextBlock Text="{Binding Main.Pressure, StringFormat='{}{0} мм рт. ст.'}" Grid.Column="3" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                <TextBlock Text="{Binding Main.Humidity, StringFormat='{}{0}%'}" Grid.Column="4" VerticalAlignment="Center"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>
