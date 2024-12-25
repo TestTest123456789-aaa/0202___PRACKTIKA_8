@@ -20,9 +20,28 @@ namespace _0202_8_Weather
     /// </summary>
     public partial class MainWindow : Window
     {
+        const string content = "Введите название города";
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void textBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(city.Text))
+            {
+                city.Text = content;
+            }
+        }
+
+        private void textBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void textBox_KeyDown(object sender, KeyEventArgs e)
+        {
+
         }
     }
 }
