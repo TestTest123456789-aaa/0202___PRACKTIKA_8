@@ -12,8 +12,11 @@
         </Grid>
         <Grid Background="AliceBlue"  Margin="0,40,0,0">
             <TextBox x:Name="city" Width="461" Margin="0,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" HorizontalContentAlignment="Center" FontSize="16"  BorderThickness="2" BorderBrush="Black" VerticalContentAlignment="Center"  Text="Введите город" Padding="10" LostFocus="textBox_LostFocus" GotFocus="textBox_GotFocus" KeyDown="textBox_KeyDown"/>
+
             <ScrollViewer Margin="10,60,10,10" VerticalScrollBarVisibility="Auto" BorderThickness="2" BorderBrush="Black">
-                <StackPanel x:Name="parent"/>
+                <Grid Background="CadetBlue">
+                    <StackPanel x:Name="parent" Margin="3" Background="AliceBlue"/>
+                </Grid>
             </ScrollViewer>
         </Grid>
     </Grid>
