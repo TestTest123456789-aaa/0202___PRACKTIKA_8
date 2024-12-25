@@ -1,26 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace _0202_8_Weather
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         const string content = "Введите название города";
+        WeatherViewModel _viewModel;
         public MainWindow()
         {
             InitializeComponent();
@@ -36,12 +23,42 @@ namespace _0202_8_Weather
 
         private void textBox_GotFocus(object sender, RoutedEventArgs e)
         {
-
+            if (city.Text == content)
+            {
+                city.Text = string.Empty;
+            }
         }
 
         private void textBox_KeyDown(object sender, KeyEventArgs e)
         {
-
+            if (e.Key == Key.Enter)
+            {
+                var cityName = city.Text;
+                if (string.IsNullOrWhiteSpace(cityName))
+                {
+                    MessageBox.Show("Введите название города");
+                    return;
+                }
+                try
+                {
+                    parent.Children.Clear();
+                    if (_viewModel.ForecastData?.List != null)
+                    {
+                        foreach (var forecastItem in _viewModel.ForecastData.List)
+                        {
+                            var element = new Elements.Element
+                            {
+                                DataContext = forecastItem
+                            };
+                            parent.Children.Add(element);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка: {ex.Message}");
+                }
+            }
         }
     }
 }
