@@ -7,4 +7,11 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\" />
+    <Folder Include="Classes\" />
+    <Folder Include="Elements\" />
+    <Folder Include="Images\" />
+  </ItemGroup>
+
 </Project>
