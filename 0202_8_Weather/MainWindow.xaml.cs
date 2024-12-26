@@ -7,7 +7,7 @@ namespace _0202_8_Weather
     public partial class MainWindow : Window
     {
         const string content = "Введите название города";
-        WeatherViewModel _viewModel;
+        WeatherModel _viewModel;
         public MainWindow()
         {
             InitializeComponent();
