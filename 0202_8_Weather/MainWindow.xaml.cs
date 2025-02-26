@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _0202_8_Weather.Classes;
+using System;
 using System.Windows;
 using System.Windows.Input;
 
@@ -6,11 +7,13 @@ namespace _0202_8_Weather
 {
     public partial class MainWindow : Window
     {
-        const string content = "Введите название города";
-        WeatherModel _viewModel;
+        private const string content = "Пермь";
+        private readonly ViewModel _viewModel;
         public MainWindow()
         {
             InitializeComponent();
+            _viewModel = new ViewModel();
+            DataContext = _viewModel;
         }
 
         private void textBox_LostFocus(object sender, RoutedEventArgs e)
@@ -29,18 +32,19 @@ namespace _0202_8_Weather
             }
         }
 
-        private void textBox_KeyDown(object sender, KeyEventArgs e)
+        private async void textBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
                 var cityName = city.Text;
                 if (string.IsNullOrWhiteSpace(cityName))
                 {
-                    MessageBox.Show("Введите название города");
+                    MessageBox.Show("Пермь");
                     return;
                 }
                 try
                 {
+                    await _viewModel.LoadWeatherAsync(cityName);
                     parent.Children.Clear();
                     if (_viewModel.ForecastData?.List != null)
                     {

@@ -35,40 +35,40 @@
                 <Image Width="32" Height="32" VerticalAlignment="Center" Margin="0,0,10,0">
                     <Image.Style>
                         <Style TargetType="Image">
-                            <Setter Property="Source" Value="\Images\sun.png"/>
+                            <Setter Property="Source" Value="E:\0202_8_Weather\0202_8_Weather\Images\sun.png"/>
                             <Style.Triggers>
                                 <DataTrigger Binding="{Binding WeatherDescription}" Value="ясно">
-                                    <Setter Property="Source" Value="\Images\sun.png"/>
+                                    <Setter Property="Source" Value="E:\0202_8_Weather\0202_8_Weather\Images\sun.png"/>
                                 </DataTrigger>
                                 <DataTrigger Binding="{Binding WeatherDescription}" Value="переменная облачность">
-                                    <Setter Property="Source" Value="\Images\sun_cloud.png"/>
+                                    <Setter Property="Source" Value="E:\0202_8_Weather\0202_8_Weather\Images\sun_cloud.png"/>
                                 </DataTrigger>
                                 <DataTrigger Binding="{Binding WeatherDescription}" Value="малооблачно">
-                                    <Setter Property="Source" Value="\Images\sun_cloud.png"/>
+                                    <Setter Property="Source" Value="E:\0202_8_Weather\0202_8_Weather\Images\sun_cloud.png"/>
                                 </DataTrigger>
                                 <DataTrigger Binding="{Binding WeatherDescription}" Value="облачно с прояснениями">
-                                    <Setter Property="Source" Value="\Images\sun_cloud.png"/>
+                                    <Setter Property="Source" Value="E:\0202_8_Weather\0202_8_Weather\Images\sun_cloud.png"/>
                                 </DataTrigger>
                                 <DataTrigger Binding="{Binding WeatherDescription}" Value="пасмурно">
-                                    <Setter Property="Source" Value="\Images\cloud.png"/>
+                                    <Setter Property="Source" Value="E:\0202_8_Weather\0202_8_Weather\Images\cloud.png"/>
                                 </DataTrigger>
                                 <DataTrigger Binding="{Binding WeatherDescription}" Value="дождь">
-                                    <Setter Property="Source" Value="\Images\rain.png"/>
+                                    <Setter Property="Source" Value="E:\0202_8_Weather\0202_8_Weather\Images\rain.png"/>
                                 </DataTrigger>
                                 <DataTrigger Binding="{Binding WeatherDescription}" Value="ливень">
-                                    <Setter Property="Source" Value="\Images\rain.png"/>
+                                    <Setter Property="Source" Value="E:\0202_8_Weather\0202_8_Weather\Images\rain.png"/>
                                 </DataTrigger>
                                 <DataTrigger Binding="{Binding WeatherDescription}" Value="гроза">
-                                    <Setter Property="Source" Value="\Images\rain.png"/>
+                                    <Setter Property="Source" Value="E:\0202_8_Weather\0202_8_Weather\Images\rain.png"/>
                                 </DataTrigger>
                                 <DataTrigger Binding="{Binding WeatherDescription}" Value="снег">
-                                    <Setter Property="Source" Value="/Images/snow.png"/>
+                                    <Setter Property="Source" Value="E:\0202_8_Weather\0202_8_Weather\Images\snow.png"/>
                                 </DataTrigger>
                                 <DataTrigger Binding="{Binding WeatherDescription}" Value="небольшой снег">
-                                    <Setter Property="Source" Value="/Images/snow.png"/>
+                                    <Setter Property="Source" Value="E:\0202_8_Weather\0202_8_Weather\Images\snow.png"/>
                                 </DataTrigger>
                                 <DataTrigger Binding="{Binding WeatherDescription}" Value="туман">
-                                    <Setter Property="Source" Value="/Images/cloud.png"/>
+                                    <Setter Property="Source" Value="E:\0202_8_Weather\0202_8_Weather\Images\snow.png"/>
                                 </DataTrigger>
                             </Style.Triggers>
                         </Style>
